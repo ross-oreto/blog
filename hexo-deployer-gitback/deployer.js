@@ -16,7 +16,8 @@ var swigHelpers = {
 
 module.exports = function(args) {
     var baseDir = this.base_dir;
-    var deployDir = pathFn.join(baseDir);
+    var deployDir = pathFn.join(baseDir, '.deploy_gitback');
+    var sourceDir = pathFn.join(baseDir, 'source');
     var publicDir = this.public_dir;
     var log = this.log;
     var message = commitMessage(args);
@@ -79,9 +80,20 @@ module.exports = function(args) {
         });
     }
 
-    return fs.exists(pathFn.join(deployDir, '.git')).then(function(exist) {
+    function pushBack(repo) {
+        return git('add', '-A').then(function() {
+            return git('commit', '-m', message).catch(function() {
+                // Do nothing. It's OK if nothing to commit.
+            });
+        }).then(function() {
+            return git('push', 'HEAD:' + repo.branch, '--force');
+        });
+    }
+
+    var blogRepo = "https://ross-oreto:" + process.env.GITHUB_PASSWORD + "@github.com/ross-oreto/blog";
+    return fs.exists(deployDir).then(function(exist) {
         if (!exist) {
-            return git('init').then(function () {
+            return git('checkout', blogRepo, deployDir).then(function () {
                 var userName = args.name || args.user || args.userName || '';
                 var userEmail = args.email || args.userEmail || '';
                 git('config', 'user.name', userName);
@@ -89,7 +101,9 @@ module.exports = function(args) {
             });
         }
     }).then(function () {
-        return push({url: "https://ross-oreto:" + process.env.GITHUB_PASSWORD + "@github.com/ross-oreto/blog", branch: 'master'});
+        return fs.copyDir(sourceDir, pathFn.join(deployDir, 'source'));
+    }).then(function () {
+        return pushBack({url: blogRepo, branch: 'master'});
     }).then(function () {
         deployDir = pathFn.join(baseDir, '.deploy_git');
         return fs.exists(deployDir).then(function(exist) {
