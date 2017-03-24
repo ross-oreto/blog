@@ -86,7 +86,7 @@ module.exports = function(args) {
                 // Do nothing. It's OK if nothing to commit.
             });
         }).then(function() {
-            return git('push', 'HEAD:' + repo.branch, '--force');
+            return git('push', repo.url, 'HEAD:' + repo.branch, '--force');
         });
     }
 
@@ -94,7 +94,7 @@ module.exports = function(args) {
     var blogRepo = "https://ross-oreto:" + process.env.GITHUB_PASSWORD + "@github.com/ross-oreto/blog";
     return fs.exists(checkoutDir).then(function(exist) {
         if (!exist) {
-            return git('checkout', blogRepo, checkoutDir).then(function () {
+            return git('clone', blogRepo, checkoutDir).then(function () {
                 deployDir = checkoutDir;
                 var userName = args.name || args.user || args.userName || '';
                 var userEmail = args.email || args.userEmail || '';
