@@ -16,7 +16,7 @@ var swigHelpers = {
 
 module.exports = function(args) {
     var baseDir = this.base_dir;
-    var deployDir = pathFn.join(baseDir, '.deploy_gitback');
+    var deployDir = pathFn.join(baseDir);
     var sourceDir = pathFn.join(baseDir, 'source');
     var publicDir = this.public_dir;
     var log = this.log;
@@ -90,16 +90,18 @@ module.exports = function(args) {
         });
     }
 
+    var checkoutDir = pathFn.join(baseDir, '.deploy_gitback');
     var blogRepo = "https://ross-oreto:" + process.env.GITHUB_PASSWORD + "@github.com/ross-oreto/blog";
-    return fs.exists(deployDir).then(function(exist) {
+    return fs.exists(checkoutDir).then(function(exist) {
         if (!exist) {
-            return git('checkout', blogRepo, deployDir).then(function () {
+            return git('checkout', blogRepo, checkoutDir).then(function () {
+                deployDir = checkoutDir;
                 var userName = args.name || args.user || args.userName || '';
                 var userEmail = args.email || args.userEmail || '';
                 git('config', 'user.name', userName);
                 return git('config', 'user.email', userEmail);
             });
-        }
+        } else deployDir = checkoutDir;
     }).then(function () {
         return fs.copyDir(sourceDir, pathFn.join(deployDir, 'source'));
     }).then(function () {
