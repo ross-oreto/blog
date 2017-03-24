@@ -6,4 +6,6 @@ categories: []
 
 Come va?
 
+Fiji Island
+
 ![](/images/Fiji-991x470.jpg)
