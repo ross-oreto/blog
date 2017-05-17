@@ -1,6 +1,6 @@
 title: test
-date: 2017-03-23T08:21:27.530Z
 tags: []
 categories: []
+date: 2017-03-23 08:21:00
 ---
 this is a test post.
