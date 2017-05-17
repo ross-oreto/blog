@@ -3,7 +3,7 @@
 ```
 $ npm install hexo-cli -g
 $ npm install
-$ hexo server
+$ hexo serve
 ```
 
 ##### To create a new post or a new page, you can run the following command:
@@ -15,6 +15,3 @@ $ hexo new [layout] <title>
 ``` 
 $ hexo generate --deploy
 ``` 
-
-##### hexo-deployer-gitback
- - deploys source file generated to the git blog repo and to the git repo for the generated site.

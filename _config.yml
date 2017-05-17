@@ -78,8 +78,16 @@ theme: cactus-dark
 #  type: heroku
 #  repo: https://git.heroku.com/ross-blog.git
 deploy:
-  type: gitback
+  type: git
   repo: https://github.com/ross-oreto/ross-oreto.github.io
   branch: master
   name: ross-oreto
   email: ross.oreto@gmail.com
+
+# Admin
+admin:
+    name: hexo
+    password: hey
+    secret: hey hexo
+    expire: 60*12
+    # cors: http://localhost:3000
