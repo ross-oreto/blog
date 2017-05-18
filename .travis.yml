@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "7"
+
+before_install:
+    - npm install -g hexo
+
+install:
+    - npm install
+
+before_script:
+    - git config --global user.name 'ross-oreto'
+    - git config --global user.email 'ross.oreto@gmail.com'
+    - git config --global github.token $GITHUB_ACCESS_TOKEN
+
+script:
+    - hexo generate --deploy
