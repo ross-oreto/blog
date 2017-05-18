@@ -11,7 +11,7 @@ install:
 before_script:
     - git config --global user.name 'ross-oreto'
     - git config --global user.email 'ross.oreto@gmail.com'
-    - git config --global github.token $GITHUB_ACCESS_TOKEN
+    - sed -i'' "s~{GITHUB_ACCESS_TOKEN}~${GITHUB_ACCESS_TOKEN}~" _config.yml
 
 script:
     - hexo generate --deploy
