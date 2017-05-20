@@ -1,4 +1,10 @@
 options:
   askImageFilename: true
   overwriteImages: true
-  imagePrefix: ''
+  imagePrefix: p-
+  spellcheck: true
+  lineNumbers: true
+editor:
+  inputStyle: contenteditable
+  spellcheck: true
+  lineNumbers: true
