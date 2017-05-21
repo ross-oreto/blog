@@ -1,4 +1,4 @@
-#### Nexo blog with dark cactus theme using a custom deployer
+#### Hexo blog with dark cactus theme using Travis-CI for deployment
 [![Build Status](https://travis-ci.org/ross-oreto/blog.svg?branch=master)](https://travis-ci.org/ross-oreto/blog)
 
  - in project root
