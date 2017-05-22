@@ -1,7 +1,9 @@
 title: ciao
-date: 2017-03-20 14:44:21
-tags: []
-categories: []
+tags:
+  - fiji
+categories:
+  - travel
+date: 2017-03-20 14:44:00
 ---
 
 Come va?
