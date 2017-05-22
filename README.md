@@ -47,7 +47,7 @@ $ hexo generate --deploy
 }
 .posts_display {
   background-color: #1d1f21;
-  color: white;
+  color: #c9cacc;
 }
 .posts_draft-message {
  background-color: #1d1f21;
@@ -58,13 +58,34 @@ $ hexo generate --deploy
 }
 .CodeMirror.cm-s-default.CodeMirror-wrap {
   background-color: #1d1f21;
-  color: white;
+  color: #2bbc8a;
 }
 .editor_top .editor_title {
   background-color: black;
-  color: white;
+  color: #2bbc8a;
 }
 .editor_top button {
-  color: white;
+  color: #2bbc8a;
+}
+.cm-s-default .cm-header {
+  color: #2bbc8a;
+}
+.cm-s-default .cm-builtin {
+  color: #2bbc8a;
+}
+.cm-s-default .cm-attribute {
+  color: #2bbc8a;
+}
+.cm-s-default .cm-variable-2 {
+  color: #c9cacc;
+}
+.cm-s-default .cm-link {
+  color: #2bbc8a;
+}
+.cm-s-default .cm-def {
+  color: #2bbc8a;
+}
+.cm-s-default .cm-atom {
+  color: #2bbc8a;
 }
 ```
