@@ -6,6 +6,7 @@
 title: Ross Oreto
 subtitle:
 description:
+keywords:
 author: Ross Oreto
 language:
 timezone:
@@ -16,13 +17,6 @@ url: https://ross-oreto.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
-
-nav:
-  Home: /
-  About: /about/
-  Writing: /archives/
-  Projects: http://github.com/ross-oreto
-  LINK_NAME: URL
 
 # Directory
 source_dir: source
@@ -50,6 +44,15 @@ highlight:
   auto_detect: false
   tab_replace:
 
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -70,7 +73,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: cactus-dark
+#theme: landscape
+theme: cactus
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -83,11 +87,3 @@ deploy:
   branch: master
   name: ross-oreto
   email: ross.oreto@gmail.com
-
-# Admin
-admin:
-    name: hexo
-    password: hey
-    secret: hey hexo
-    expire: 60*12
-    # cors: http://localhost:3000
