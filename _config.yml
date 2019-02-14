@@ -83,7 +83,7 @@ theme: cactus
 #  repo: https://git.heroku.com/ross-blog.git
 deploy:
   type: git
-  repo: https://{GITHUB_ACCESS_TOKEN}:x-oauth-basic@github.com/ross-oreto/ross-oreto.github.io
+  repo: https://{GITHUB_ACCESS_TOKEN}@github.com/ross-oreto/ross-oreto.github.io
   branch: master
   name: ross-oreto
   email: ross.oreto@gmail.com
