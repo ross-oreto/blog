@@ -36,3 +36,13 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/deployment.html)
+
+### New draft
+```bash
+$ hexo new draft x
+```
+
+### Publish draft
+```bash
+$ hexo publish x
+```
